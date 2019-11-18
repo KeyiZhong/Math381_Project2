@@ -8,8 +8,8 @@ import fnmatch
 
 search_url = "https://www.gutenberg.org/ebooks/authors/search/?query="
 base_url = "https://www.gutenberg.org"
-author = ['mark twain']
-
+author = ['mark twain', 'charles dickens', 'Jane Austen', 'Leo Tolstoy', 'Virginia Woolf', 'F. Scott Fitzgerald',
+          'Lewis Carroll', 'Mary Shelley', 'Herman Melville', 'Oscar Wilde', 'Arthur Conan Doyle']
 
 def downloadPage(books):
     for i in range(len(books)):
