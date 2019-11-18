@@ -19,22 +19,23 @@ def downloadPage(books):
         soup = BeautifulSoup(html, features='lxml')
         name = soup.find('h1').contents[0]
         download = soup.find_all("a", {"class": "link", 'type': re.compile("^text/plain")})
+        if not name.contains("Gutenberg"):
+            if not os.path.exists(author[0]):
+                os.makedirs(author[0])
 
-        if not os.path.exists(author[0]):
-            os.makedirs(author[0])
+            file_exist = False
+            for file in os.listdir(author[0] + "/"):
+                if fnmatch.fnmatch(file, name.replace(' ', '_')[0:10] + "*"):
+                    print(name)
+                    file_exist = True
 
-        file_exist = False
-        for file in os.listdir(author[0] + "/"):
-            if fnmatch.fnmatch(file, "^" + name.replace(' ', '_')[0:10]):
-                file_exist = True
-
-        if len(download) != 0 and not file_exist:
-            try:
-                f = open(author[0] + "/" + name.replace(' ', '_') + ".txt", "w+")
-                f.write(urlopen(base_url + download[0]['href']).read().decode('utf-8'))
-                f.close()
-            except:
-                print(name)
+            if len(download) != 0 and not file_exist:
+                try:
+                    f = open(author[0] + "/" + name.replace(' ', '_') + ".txt", "w+")
+                    f.write(urlopen(base_url + download[0]['href']).read().decode('utf-8'))
+                    f.close()
+                except:
+                    print(name)
 
 
 def mainloop():
