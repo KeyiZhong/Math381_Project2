@@ -11,7 +11,7 @@ def distance(A,B):
 	#more easily calculating distance
 	A_vec = A.flatten()
 	B_vec = B.flatten()
-	return euclid_dist(A_vec,B_vec)
+	return manhat_dist(A_vec,B_vec)#euclid_dist(A_vec,B_vec)
 
 # Get the n-dimensional euclidean distance between 2 vectors of the same length
 def euclid_dist(A,B):
@@ -32,4 +32,8 @@ def centroid(M):
 	centroid = m/len(M)
 	return centroid
 		
-		
+def manhat_dist(A,B):
+	s = 0
+	for i in range(len(A[0].T)):
+		s += abs(A[0,i] - B[0,i])
+	return s
