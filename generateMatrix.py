@@ -65,8 +65,12 @@ def generate(f):
         lst = temp[i]
         total = sum(lst)
         lst2 = []
-        for j in lst:
-            lst2.append(j / total)
-        temp2.append(lst2)
+        if not(total == 0):
+            for j in lst:
+                lst2.append(j / total)
+            temp2.append(lst2)
+        else:
+            cur = [0.0] * 15
+            temp2.append(cur)
     x = [np.array(i) for i in temp2]
     return x
