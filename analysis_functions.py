@@ -11,24 +11,22 @@ def distance(A,B):
 	#more easily calculating distance
 	A_vec = A.flatten()
 	B_vec = B.flatten()
-	A_list = A_vec.tolist()
-	B_list = B_vec.tolist()
-	return euclid_dist(A_list,B_list)
+	return euclid_dist(A_vec,B_vec)
 
-# Get the n-dimensional euclidean distance between 2 lists of the same length
-def euclid_dist(A,B)
-	sum = 0
-	for (i in range(A.len)):
-		sum += (A[i] - B[i]) ** 2
-	return math.sqrt(sum)
+# Get the n-dimensional euclidean distance between 2 vectors of the same length
+def euclid_dist(A,B):
+	s = 0
+	for i in range(len(A[0].T)):
+		s += (A[0,i] - B[0,i]) ** 2
+	return math.sqrt(s)
 		
 # get the centroid from a collection of same dimension matrices
-def centroid(M)
-	sum = np.zeros(10,10);
-	sum = np.asmatrix(sum)
-	for(mat in M):
-		sum = numpy.add(sum,mat)
-	centroid = sum/M.len()
+def centroid(M):
+	s = np.zeros(len(M[0]),len(M[0]))
+	m = np.asmatrix(s)
+	for mat in M:
+		m = numpy.add(m,mat)
+	centroid = m/M.len()
 	return centroid
 		
 		
