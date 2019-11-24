@@ -22,11 +22,14 @@ def euclid_dist(A,B):
 		
 # get the centroid from a collection of same dimension matrices
 def centroid(M):
-	s = np.zeros(len(M[0]),len(M[0]))
+	print(M)
+	size = len(M[0][0].T)
+	print(size)
+	s = np.zeros((size,size))
 	m = np.asmatrix(s)
 	for mat in M:
-		m = numpy.add(m,mat)
-	centroid = m/M.len()
+		m = np.add(m,mat)
+	centroid = m/len(M)
 	return centroid
 		
 		

@@ -18,5 +18,7 @@ import analysis_functions as af
 
 A = np.array([[1,2],[3,4]])
 B = np.array([[0,1],[3,5]])
+C = np.array([[1,3],[6,10]])
 
 print(af.distance(np.asmatrix(A),np.asmatrix(B)))
+print(af.centroid([np.asmatrix(A),np.asmatrix(B),np.asmatrix(C)]))
