@@ -41,7 +41,7 @@ def generate(f):
             row_dic.get(cur_len)[next_len] = 1
     # get the max length
     #print(row_dic)
-    max_length = max(row_dic)
+    max_length = 15
 
     temp = []
     for i in range(1, max_length + 1):
@@ -74,3 +74,7 @@ def generate(f):
             temp2.append(cur)
     x = [np.array(i) for i in temp2]
     return x
+
+if __name__ == '__main__':
+    generate("mark twain done/Those_Extraordinary_Twins_by_Mark_Twain.txt")
+    print("ok")
