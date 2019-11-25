@@ -82,7 +82,7 @@ def main():
                     dist_to_centroids.update({key:af.distance(np.asmatrix(transition_matrix),centroids.get(key))})
                 distances = ""
                 for key in dist_to_centroids:
-                    distances = distances + key + " " + str(dist_to_centroids.get(key)) + " "
+                    distances = distances + key + "," + str(dist_to_centroids.get(key)) + ","
                     print(distances)
                 f = open(author+"/"+file+"/distance_to_authors.txt", "w+")
                 f.write(distances)
