@@ -10,7 +10,7 @@ for(author in authors){
   books <- dir(paste0("./",author), pattern = "[^centroid_matrix.csv]", full.names = TRUE,
                ignore.case = TRUE, include.dirs = TRUE)
   for(book in books) {
-    table <- read.table(paste0(book,'/distance_to_authors.txt'), header = FALSE, sep = ",",
+    table <- read.table(paste0(book,'/manhattan_distance_to_authors.txt'), header = FALSE, sep = ",",
                         dec = ".")
     table <- table[seq(2,length(table),2)]
     names(table) <- authors

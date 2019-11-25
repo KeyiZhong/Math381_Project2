@@ -84,12 +84,12 @@ def main():
                 for key in dist_to_centroids:
                     distances = distances + key + "," + str(dist_to_centroids.get(key)) + ","
                     print(distances)
-                f = open(author+"/"+file+"/distance_to_authors.txt", "w+")
+                # f = open(author+"/"+file+"/distance_to_authors.txt", "w+")
+                f = open(author + "/" + file + "/manhattan_distance_to_authors.txt", "w+")
                 f.write(distances)
                 f.close()
 
 
 if __name__ == '__main__':
     main()
-
     print("ok")

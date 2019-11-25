@@ -6,14 +6,14 @@ distance_bar <- function(book_frame, author_name) {
   authors <- colnames(book_frame)
   gsub(" ","\n",authors)
   col <- c('grey', 'red')[(authors==author_name)+1]
-  plot <- barplot(avg_dists, ylim = c(0,0.8), 
+  plot <- barplot(avg_dists, 
           main = author_name,
           names.arg = authors,las = 2,col = col,cex.names = 1)
 }
 
 distance_histo <- function(book_frame, author_name) {
   distances = book_frame[author_name]
-  hist(distances[,1],xlim = c(0,1.2), main = author_name, xlab = "distance to centroid", breaks = seq(0,1.2,0.1))
+  hist(distances[,1], main = author_name, xlab = "distance to centroid")
 }
 
 # book_frame is a data frame that has rows as book names and columns as author names
